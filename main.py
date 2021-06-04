@@ -3,13 +3,13 @@ import student
 from blessed import Terminal
 term = Terminal()
 
+
+#Function checks if the user is in the student database
 def check_user(user,password):
     if user in admin.student_dict:
-        #bugged needs review
         if password == admin.student_dict[user].strip("\n"):
             name = user.replace("_"," ")
             print(f"Hello {name}")
-            #run student script
             action=0
             while(action!=3):
                 action = int(input("What would you like to do? \nView Info(1) \nChange Password(2) \nQuit(3)\n"))
@@ -30,7 +30,7 @@ def check_user(user,password):
 
 admin.update_dict()
 
-#check whoadmin is using it with a input prompt
+#check if admin is using it with a input prompt
 user = input("Enter username ")
 key = input("Enter password ")
 if user.lower()=='admin' and key=="Admin":

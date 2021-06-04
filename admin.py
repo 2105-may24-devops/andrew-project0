@@ -1,8 +1,11 @@
 import pathlib 
+#path to the dictionary
 dict_path = pathlib.Path("student_dict.txt")
+#name of students folder
 student_path = "students"
 student_dict = {}
 
+#update the dict to match all current info in the file
 def update_dict():
     with dict_path.open('r') as file:
         lines = []
@@ -13,11 +16,13 @@ def update_dict():
             user,password = line.split(',')
             student_dict[user] = password
 
+#update the file to match the current dict
 def update_file():
     with dict_path.open('w') as file:
         for user,password in student_dict.items():
             file.write(f'{user},{password}\n')
 
+#adds a new student to the file then calls update dict
 def add_student(name,year):
     mod_name=name.replace(' ','_')
     with dict_path.open('a+') as file:
@@ -29,6 +34,7 @@ def add_student(name,year):
                 student_file.write(f"Name: {name} \nGraduation Year: 20{year} \nGPA: * \nCurrent Grades *|*|*|*|*|*|*|*")
     update_dict()
 
+#rewrites the file without the student then calls update dict
 def remove_student(name):
     mod_name=name.replace(' ','_')
     if mod_name not in student_dict:
@@ -46,7 +52,8 @@ def remove_student(name):
         student_file.unlink()
     update_dict()
 
-def grade_student(name):
+#ment to change * in student file to a set of grades
+def grade_student(name,grades):
     mod_name=name.replace(' ','_')
     if mod_name not in student_dict:
             print("Student is not in the system")
@@ -54,7 +61,7 @@ def grade_student(name):
         with open(f"{mod_name}.txt",'r+') as student_file:
             print(student_file.readlines)
 
-
+#change the password in the dict then calls update file
 def change_student_password(name,password):
     mod_name=name.replace(' ','_')
     if mod_name in student_dict:
@@ -63,6 +70,7 @@ def change_student_password(name,password):
     else:
          print("Student is not in the system")
 
+#print current dict
 def list_students():
     for student in student_dict:
         name = student
