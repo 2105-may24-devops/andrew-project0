@@ -1,5 +1,6 @@
 import pathlib 
 dict_path = pathlib.Path("student_dict.txt")
+student_path = "students"
 student_dict = {}
 
 def update_dict():
@@ -24,7 +25,7 @@ def add_student(name,year):
             print("Student is alread in the system")
         else:
             file.write(f"{mod_name},{mod_name}_{year}\n")
-            with open(f"{mod_name}.txt",'w+') as student_file:
+            with open(f"{student_path}/{mod_name}.txt",'w+') as student_file:
                 student_file.write(f"Name: {name} \nGraduation Year: 20{year} \nGPA: * \nCurrent Grades *|*|*|*|*|*|*|*")
     update_dict()
 
@@ -41,7 +42,7 @@ def remove_student(name):
                 current_name = line.split(",")
                 if mod_name != current_name[0]:
                     file.write(line)
-        student_file = pathlib.Path(f"{mod_name}.txt")
+        student_file = pathlib.Path(f"{student_path}/{mod_name}.txt")
         student_file.unlink()
     update_dict()
 
