@@ -76,4 +76,3 @@ def list_students():
         name = student
         mod_name = name.replace('_',' ')
         print(mod_name)
-
