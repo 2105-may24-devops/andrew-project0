@@ -1,7 +1,7 @@
 import admin
 import student
-from blessed import Terminal
-term = Terminal()
+# from blessed import Terminal
+# term = Terminal()
 
 def check_user(user,password):
     if user in admin.student_dict:
@@ -61,4 +61,3 @@ if user.lower()=='admin' and key=="Admin":
 else:
     #check if user and password match a key-value in student dir
     check_user(user,key)
-
