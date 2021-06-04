@@ -1,12 +1,13 @@
-import pathlib 
+import pathlib
 dict_path = pathlib.Path("student_dict.txt")
+data_location = "student_data/"
 student_dict = {}
 
 def update_dict():
     with dict_path.open('r') as file:
         lines = []
         student_dict.clear()
-        #read from the file and put the pars into a dict as key - value 
+        #read from the file and put the pars into a dict as key - value
         lines = file.readlines()
         for line in lines:
             user,password = line.split(',')
@@ -24,7 +25,7 @@ def add_student(name,year):
             print("Student is alread in the system")
         else:
             file.write(f"{mod_name},{mod_name}_{year}\n")
-            with open(f"{mod_name}.txt",'w+') as student_file:
+            with open(f"{data_location}{mod_name}.txt",'w+') as student_file:
                 student_file.write(f"Name: {name} \nGraduation Year: 20{year} \nGPA: * \nCurrent Grades *|*|*|*|*|*|*|*")
     update_dict()
 
@@ -41,7 +42,7 @@ def remove_student(name):
                 current_name = line.split(",")
                 if mod_name != current_name[0]:
                     file.write(line)
-        student_file = pathlib.Path(f"{mod_name}.txt")
+        student_file = pathlib.Path(f"{data_location}{mod_name}.txt")
         student_file.unlink()
     update_dict()
 
@@ -50,7 +51,7 @@ def grade_student(name):
     if mod_name not in student_dict:
             print("Student is not in the system")
     else:
-        with open(f"{mod_name}.txt",'r+') as student_file:
+        with open(f"{data_location}{mod_name}.txt",'r+') as student_file:
             print(student_file.readlines)
 
 
@@ -67,4 +68,3 @@ def list_students():
         name = student
         mod_name = name.replace('_',' ')
         print(mod_name)
-
