@@ -1,8 +1,5 @@
 import admin
 import student
-from blessed import Terminal
-term = Terminal()
-
 
 #Function checks if the user is in the student database
 def check_user(user,password):
@@ -47,7 +44,8 @@ if user.lower()=='admin' and key=="Admin":
             name = input("Enter students name ")
             admin.remove_student(name)
         elif action==3:
-            print("Action can not be compleat at this time.")
+            name = input("Enter students name ")
+            admin.grade_student(name)
         elif action==4:
             name = input("Enter students name ")
             password = input("Enter new password ")

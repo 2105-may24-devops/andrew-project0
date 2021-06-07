@@ -1,4 +1,6 @@
-import pathlib 
+from os import write
+import pathlib
+from types import new_class 
 #path to the dictionary
 dict_path = pathlib.Path("student_dict.txt")
 #name of students folder
@@ -31,7 +33,7 @@ def add_student(name,year):
         else:
             file.write(f"{mod_name},{mod_name}_{year}\n")
             with open(f"{student_path}/{mod_name}.txt",'w+') as student_file:
-                student_file.write(f"Name: {name} \nGraduation Year: 20{year} \nGPA: * \nCurrent Grades *|*|*|*|*|*|*|*")
+                student_file.write(f"Name: {name} \nGraduation Year: 20{year} \nCurrent Grades *|*|*|*|*|*|*|*")
     update_dict()
 
 #rewrites the file without the student then calls update dict
@@ -53,13 +55,29 @@ def remove_student(name):
     update_dict()
 
 #ment to change * in student file to a set of grades
-def grade_student(name,grades):
+def grade_student(name):
     mod_name=name.replace(' ','_')
     if mod_name not in student_dict:
             print("Student is not in the system")
     else:
-        with open(f"{mod_name}.txt",'r+') as student_file:
-            print(student_file.readlines)
+        with open(f"{student_path}/{mod_name}.txt",'r') as student_file:
+            lines = student_file.readlines()
+
+            for line in lines:
+                pass
+            mod_line = list(line)
+            for i in range (1,16,2):
+                grade = str(input("Grades from 8th to 1st "))
+                mod_line[len(line)-i] = grade
+            line = "".join(mod_line)
+        with open(f"{student_path}/{mod_name}.txt",'w') as student_file:
+            for new_line in lines:
+                if "Current" not in new_line:
+                    student_file.write(new_line)
+                else:
+                    student_file.write(line)
+            
+                    
 
 #change the password in the dict then calls update file
 def change_student_password(name,password):
