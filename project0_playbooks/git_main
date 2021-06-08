@@ -1,0 +1,19 @@
+---
+- name: Project 0 main branch
+  hosts: all
+  tasks: 
+  - name: git
+    package:
+     name: git
+     state: present
+  - name: python3
+    package:
+     name: python3
+     state: present
+  - name: git clone 
+    ansible.builtin.git:
+     repo: https://github.com/2105-may24-devops/andrew-project0.git
+     dest: /home/andrew/ansible-project0
+     version: master
+     update: yes
+
