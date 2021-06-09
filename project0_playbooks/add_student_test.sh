@@ -1,3 +1,7 @@
 #!/bin/bash
 
-python -c 'import admin; admin.update_dict(); admin.add_student("Test Student",93)'
+ln -s admin.py update_dict
+ln -s admin.py add_student
+
+./update_dict
+./add_student "Test Student"  93
