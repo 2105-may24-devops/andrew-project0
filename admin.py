@@ -1,4 +1,3 @@
-from os import write
 import pathlib
 from types import new_class 
 #path to the dictionary
@@ -29,7 +28,7 @@ def add_student(name,year):
     mod_name=name.replace(' ','_')
     with dict_path.open('a+') as file:
         if mod_name in student_dict:
-            print("Student is alread in the system")
+            print("Student is already in the system")
         else:
             file.write(f"{mod_name},{mod_name}_{year}\n")
             with open(f"{student_path}/{mod_name}.txt",'w+') as student_file:
