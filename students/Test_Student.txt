@@ -1,0 +1,3 @@
+Name: Test Student 
+Graduation Year: 2093 
+Current Grades *|*|*|*|*|*|*|*
