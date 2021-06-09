@@ -1,1 +1,3 @@
-python3 -c 'import admin; grade_student("Test Student")'
+#!/bin/bash
+
+python3 -c 'import admin; admin.grade_student("Test Student")'
