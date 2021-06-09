@@ -2,7 +2,7 @@
   hosts: all
   tasks:
    - name: Test add student
-     shell:bash home/andrew/ansible-project0/project0_playbooks/add_student_test.sh >>outputlog.txt 2>&1
+     shell: home/andrew/ansible-project0/project0_playbooks/add_student_test.sh
 
    - name: Test change student password
      shell: change_password_test.sh >>outputlog.txt 2>&1
