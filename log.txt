@@ -1,0 +1,8 @@
+20210610_10:00:04: Admin logged in
+20210610_10:00:04: Admin added Sally May as a new student.
+20210610_10:00:54: Admin logged in
+20210610_10:00:54: Admin added Pally May as a new student.
+20210610_10:00:54: Admin removed Sally May from the list of students.
+20210610_10:00:54: Admin changed Pally May's grades.
+20210610_10:00:54: Pally May's password was changed.
+20210610_10:00:54: Admin removed Pally May from the list of students.

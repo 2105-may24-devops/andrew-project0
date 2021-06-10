@@ -1,10 +1,15 @@
 import pathlib
+import time
+import datetime
 from types import new_class 
 #path to the dictionary
 dict_path = pathlib.Path("student_dict.txt")
 #name of students folder
 student_path = "students"
 student_dict = {}
+#time stamp for log file
+t = time.time()
+ts = datetime.datetime.fromtimestamp(t).strftime('%Y%m%d_%H:%M:%S: ')
 
 #update the dict to match all current info in the file
 def update_dict():
@@ -33,6 +38,8 @@ def add_student(name,year):
             file.write(f"{mod_name},{mod_name}_{year}\n")
             with open(f"{student_path}/{mod_name}.txt",'w+') as student_file:
                 student_file.write(f"Name: {name} \nGraduation Year: 20{year} \nCurrent Grades *|*|*|*|*|*|*|*")
+            with open("log.txt",'a') as log:
+                log.write(f"{ts}Admin added {name} as a new student.\n")
     update_dict()
 
 #rewrites the file without the student then calls update dict
@@ -51,6 +58,8 @@ def remove_student(name):
                     file.write(line)
         student_file = pathlib.Path(f"{student_path}/{mod_name}.txt")
         student_file.unlink()
+        with open("log.txt",'a') as log:
+            log.write(f"{ts}Admin removed {name} from the list of students.\n")
     update_dict()
 
 #ment to change * in student file to a set of grades
@@ -75,6 +84,8 @@ def grade_student(name):
                     student_file.write(new_line)
                 else:
                     student_file.write(line)
+        with open("log.txt",'a') as log:
+            log.write(f"{ts}Admin changed {name}'s grades.\n")
             
                     
 
@@ -84,6 +95,8 @@ def change_student_password(name,password):
     if mod_name in student_dict:
         student_dict[mod_name]=password.strip("\n")
         update_file()
+        with open("log.txt",'a') as log:
+            log.write(f"{ts}{name}'s password was changed.\n")
     else:
          print("Student is not in the system")
 

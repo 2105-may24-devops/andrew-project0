@@ -6,6 +6,8 @@ def check_user(user,password):
     if user in admin.student_dict:
         if password == admin.student_dict[user].strip("\n"):
             name = user.replace("_"," ")
+            with open("log.txt",'a') as log:
+                log.write(f"{admin.ts}{name} logged in\n")
             print(f"Hello {name}")
             action=0
             while(action!=3):
@@ -22,6 +24,8 @@ def check_user(user,password):
                     print("Invalide input")
         else:
             print("Incorrect password")
+            with open("log.txt",'a') as log:
+                log.write(f"{admin.ts}Invalid password for {user}\n")
     else:
         print("Student does not exist")
 
@@ -32,6 +36,8 @@ user = input("Enter username ")
 key = input("Enter password ")
 if user.lower()=='admin' and key=="Admin":
     print("Welcome Admin")
+    with open("log.txt",'a') as log:
+            log.write(f"{admin.ts}Admin logged in\n")
     action=0
     while action != 6:
         action = int(input("What would you like to do? \nAdd new Student(1) \nRemove student(2) \nUpdate grades(3) \nChange Student Password(4) \nView list of students(5) \nLogout(6)\n"))
