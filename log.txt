@@ -7,3 +7,5 @@
 20210610_10:00:54: Pally May's password was changed.
 20210610_10:00:54: Admin removed Pally May from the list of students.
 20210611_07:28:13: Admin added Mark Test as a new student.
+2021/06/11_07:39:29: Admin added Test Student as a new student.
+2021/06/11_07:59:16: Admin added Test Student as a new student.

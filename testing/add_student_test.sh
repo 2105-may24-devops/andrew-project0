@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ..
+cd ~/ansible-project0/
 python -c 'import admin; admin.add_student("Test Student", 93)'
 
 if [ -f "~/ansible-project0/students/Test_Student.txt" ]; then
