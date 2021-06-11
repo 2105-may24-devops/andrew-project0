@@ -1,6 +1,6 @@
 ---
 - name: Project 0 main branch
-  hosts: vms
+  hosts: all
   vars:
    app_path: ~/ansible-project0
   tasks: 
@@ -12,20 +12,16 @@
     package:
      name: python3
      state: latest
-  - name: pip
-    package:
-     name: python3-pip
-     state: latest
   - name: git clone 
     ansible.builtin.git:
      repo: https://github.com/2105-may24-devops/andrew-project0.git
      dest: '{{app_path}}'
      version: master
-     update: yes
+     update: yet
+  - name: setup venv
+    command:  python3 -m venv  '{{app_path}}/venv'
   - name: install requirements
     pip:
-     requirements: '{{app_path}}/requirements.txt'
-     virtualenv: '{{app_path}}/venv'
-     virtualenv_command: python3 -m venv
+      requirements: '{{app_path}}/requirements.txt'
 
 

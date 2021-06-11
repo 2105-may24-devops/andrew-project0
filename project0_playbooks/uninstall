@@ -1,3 +1,6 @@
-- name: uninstall project
-  tasks: 
-  #tasks to uninstall project for a user program is at /~/andrew/ansible_project0
+---
+- name: Uninstalls project
+  hosts: vms
+  tasks:
+   - name: Delete folder with project
+     shell: rm -rf ~/ansible-project0

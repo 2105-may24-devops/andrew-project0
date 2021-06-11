@@ -1,17 +1,19 @@
 - name: Test for Project 0
   hosts: all
+  vars:
+     path: ~//ansible-project0/testing
   tasks:
    - name: Test add student
-     shell: home/andrew/ansible-project0/project0_playbooks/add_student_test.sh
+     shell: '{{path}}/add_student_test.sh >>outputlog.txt 2>&1
 
    - name: Test change student password
-     shell: change_password_test.sh >>outputlog.txt 2>&1
+     shell: '{{path}}/change_password_test.sh >>outputlog.txt 2>&1
 
    - name: Test change student grades
-     shell: change_grade_test.sh >>outputlog.txt 2>&1
+     command: bash home/andrew/ansible-project0/changegrade_test.sh >>outputlog.txt 2>&1
 
    - name: Test remove student
-     shell: remove_student_test.sh >>outputlog.txt 2>&1 
+     command: bash home/andrew/ansible-project0/remove_student_test.sh >>outputlog.txt 2>&1 
   
    
      
