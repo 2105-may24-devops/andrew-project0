@@ -9,7 +9,7 @@ student_path = "students"
 student_dict = {}
 #time stamp for log file
 t = time.time()
-ts = datetime.datetime.fromtimestamp(t).strftime('%Y%m%d_%H:%M:%S: ')
+ts = datetime.datetime.fromtimestamp(t).strftime('%Y/%m/%d_%H:%M:%S: ')
 
 #update the dict to match all current info in the file
 def update_dict():

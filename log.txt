@@ -6,3 +6,4 @@
 20210610_10:00:54: Admin changed Pally May's grades.
 20210610_10:00:54: Pally May's password was changed.
 20210610_10:00:54: Admin removed Pally May from the list of students.
+20210611_07:28:13: Admin added Mark Test as a new student.
