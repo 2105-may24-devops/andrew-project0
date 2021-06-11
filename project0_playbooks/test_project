@@ -1,5 +1,7 @@
 - name: Test for Project 0
-  hosts: main
+  hosts: all
   tasks:
    - name: Test add student
      script: ~/ansible-project0/testing/add_student_test.sh
+   - name: Test remove student
+     script: ~/ansible-project0/testing/remove_student_test.sh

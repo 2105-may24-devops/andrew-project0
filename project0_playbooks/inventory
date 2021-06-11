@@ -2,7 +2,7 @@
 
 main:
   hosts:
-    main01: 
+    vm2: 
       ansible_host: 104.215.72.107 
   vars:
     ansible_ssh_private_key_file: ~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem
