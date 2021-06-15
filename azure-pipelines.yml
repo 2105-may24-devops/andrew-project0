@@ -10,10 +10,6 @@ pool:
   vmImage: ubuntu-latest
 strategy:
   matrix:
-    Python27:
-      python.version: '2.7'
-    Python35:
-      python.version: '3.5'
     Python36:
       python.version: '3.6'
     Python37:
@@ -31,6 +27,9 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
+    bash ./testing/add_student_test.sh
+  displayName: 'Add student test'
+
+- script: |
+    bash ./testing/remove_student_test
+  displayName: 'Add student test'
