@@ -26,10 +26,3 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-- script: |
-    bash ./testing/add_student_test.sh
-  displayName: 'Add student test'
-
-- script: |
-    bash ./testing/remove_student_test
-  displayName: 'Add student test'
