@@ -43,3 +43,18 @@ steps:
     playbookPathOnAgentMachine: 'project0_playbooks/git_main'
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: 'project0_playbooks/inventory'
+   
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: 'project0_playbooks/test_project'
+    inventoriesAgentMachine: 'file'
+    inventoryFileOnAgentMachine: 'project0_playbooks/inventory'
+  
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: 'project0_playbooks/uninstall'
+    inventoriesAgentMachine: 'file'
+    inventoryFileOnAgentMachine: 'project0_playbooks/inventory'
+    
