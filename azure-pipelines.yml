@@ -26,6 +26,19 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: '~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem'
+
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: |
+      20.97.12.217
+      13.84.166.27
+      104.215.72.107
+      13.66.8.112
+    sshKeySecureFile: '2105-may24-devops-ubuntu-vm-1_key.pem'
+    
 # Install Ansible package
 - task: Ansible@0
   inputs:
