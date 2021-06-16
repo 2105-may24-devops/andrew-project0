@@ -32,10 +32,10 @@ steps:
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: |
-      104.215.72.107
-      20.97.12.217
-      13.84.166.27
-      13.66.8.112
+      104.215.72.107 vm2
+      20.97.12.217 vm3
+      13.84.166.27 vm4
+      13.66.8.112 vm5
     sshKeySecureFile: '2105-may24-devops-ubuntu-vm-1_key.pem'
 - task: Ansible@0
   inputs:
