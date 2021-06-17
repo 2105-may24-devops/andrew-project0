@@ -15,7 +15,6 @@ strategy:
       python.version: '3.9'
 
 steps:
-
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.9'
@@ -27,6 +26,23 @@ steps:
     python -m venv venv
     venv/bin/python -m pip install -r requirements.txt
   displayName: 'Install dependencies'
+
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Sonar Cloud Project 0'
+    organization: '2105-may24-devops'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '2105-may24-devops.andrew-project0'
+    cliSources: '.'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
 
 # Install Ansible package
 - task: InstallSSHKey@0
